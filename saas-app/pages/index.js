@@ -1,9 +1,11 @@
-import styles from "../styles/Home.module.css";
+import Navbar from "../components/Navbar";
+import Posts from "../components/Posts";
 
 export default function Home() {
   return (
     <>
-      <h1>Lets build Saas-app</h1>
+      <Posts />
+      <Navbar />
     </>
   );
 }
