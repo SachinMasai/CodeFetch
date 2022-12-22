@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import Post from "./Post";
-import { Container } from "@chakra-ui/react";
-const posts = () => {
-  const [data, setdata] = useState([]);
+import { Container, Divider } from "@chakra-ui/react";
+
+const Posts = () => {
   return (
     <Container
       maxW={{ xl: "60%", lg: "60%", md: "70%", sm: "90%" }}
@@ -25,8 +25,17 @@ const posts = () => {
         likes={9000}
         comments={800}
       />
+      <Divider orientation="horizontal" width={"100%"} />
+      <Post />
+      <Divider orientation="horizontal" width={"100%"} />
+      <Post />
+      <Divider orientation="horizontal" width={"100%"} />
+      <Post />
+      <Divider orientation="horizontal" width={"100%"} />
+      <Post />
+      <Divider orientation="horizontal" width={"100%"} />
     </Container>
   );
 };
 
-export default posts;
+export default Posts;
