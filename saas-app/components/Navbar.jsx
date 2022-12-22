@@ -15,9 +15,10 @@ import {
   PopoverContent,
 } from "@chakra-ui/react";
 import { AiFillHome } from "react-icons/ai";
-import { BsSearch, BsFillBellFill } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
+import { CiSquarePlus } from "react-icons/ci";
 const Navbar = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const [message, setMessage] = useState(true);
@@ -47,7 +48,7 @@ const Navbar = () => {
               height={"100%"}
               onClick={onClose}
               _hover={{ cursor: "pointer" }}
-              children={<Icon width={"30px"} height="30px" as={IoIosSearch} />}
+              children={<Icon width={"25px"} height="25px" as={IoIosSearch} />}
             />
           </InputGroup>
         </PopoverContent>
@@ -77,6 +78,12 @@ const Navbar = () => {
           h="30px"
           as={BsSearch}
         />
+        <Icon
+          _hover={{ cursor: "pointer" }}
+          w={"35px"}
+          h="35px"
+          as={CiSquarePlus}
+        />
         <Box _hover={{ cursor: "pointer" }} pos={"relative"}>
           <Icon w={"30px"} h="30px" as={FaTelegramPlane} />
           <Box
@@ -89,12 +96,6 @@ const Navbar = () => {
             color={"white"}
           ></Box>
         </Box>
-        <Icon
-          _hover={{ cursor: "pointer" }}
-          w={"30px"}
-          h="30px"
-          as={BsFillBellFill}
-        />
         <Avatar
           _hover={{ cursor: "pointer" }}
           name="Dhanraj"
