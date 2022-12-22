@@ -17,7 +17,14 @@ const Posts = () => {
       padding={"none"}
       gap="20px"
     >
-      <Post />
+      <Post
+        image={
+          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
+        }
+        title={"Let that sink in!!!"}
+        likes={9000}
+        comments={800}
+      />
       <Divider orientation="horizontal" width={"100%"} />
       <Post />
       <Divider orientation="horizontal" width={"100%"} />

@@ -11,9 +11,10 @@ import {
 import React, { useState } from "react";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { BiComment } from "react-icons/bi";
-import { FiRepeat } from "react-icons/fi";
+
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-const Post = () => {
+import { FaTelegramPlane } from "react-icons/fa";
+const Post = ({ image, title, likes, comments }) => {
   const [lessThan550] = useMediaQuery("(max-width: 550px)");
   const [like, setLike] = useState(true);
   const handleLike = () => {
@@ -56,7 +57,7 @@ const Post = () => {
         </Box>
       </Box>
       <Box width={{ lg: "80%", md: "90%", sm: "100%" }} margin="auto">
-        <Text marginBottom={"20px"}>Let that sink in!!!</Text>
+        <Text marginBottom={"20px"}>{title}</Text>
       </Box>
       <Box
         width={{ lg: "80%", md: "90%", sm: "100%" }}
@@ -66,11 +67,7 @@ const Post = () => {
         marginBottom={"20px"}
         onDoubleClick={handleLike}
       >
-        <Image
-          width={"100%"}
-          borderRadius="10px"
-          src="http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
-        />
+        <Image width={"100%"} borderRadius="10px" src={image} />
       </Box>
       <Box
         width={{ lg: "80%", md: "90%", sm: "100%", base: "100%" }}
@@ -78,36 +75,41 @@ const Post = () => {
         justifyContent={"space-around"}
         display={"flex"}
       >
-        {like ? (
+        <Box display={"flex"} flexDir="column" alignItems="center">
+          {like ? (
+            <Icon
+              _hover={{ cursor: "pointer" }}
+              onClick={handleLike}
+              width={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
+              h={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
+              color={"red"}
+              as={AiFillHeart}
+            />
+          ) : (
+            <Icon
+              _hover={{ cursor: "pointer" }}
+              onClick={handleLike}
+              width={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
+              h={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
+              as={AiOutlineHeart}
+            />
+          )}
+          <Text>{likes}</Text>
+        </Box>
+        <Box display={"flex"} flexDir="column" alignItems="center">
           <Icon
             _hover={{ cursor: "pointer" }}
-            onClick={handleLike}
             width={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
             h={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
-            color={"red"}
-            as={AiFillHeart}
+            as={BiComment}
           />
-        ) : (
-          <Icon
-            _hover={{ cursor: "pointer" }}
-            onClick={handleLike}
-            width={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
-            h={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
-            as={AiOutlineHeart}
-          />
-        )}
-
+          <Text>{comments}</Text>
+        </Box>
         <Icon
           _hover={{ cursor: "pointer" }}
           width={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
           h={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
-          as={BiComment}
-        />
-        <Icon
-          _hover={{ cursor: "pointer" }}
-          width={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
-          h={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
-          as={FiRepeat}
+          as={FaTelegramPlane}
         />
       </Box>
     </Container>
