@@ -35,12 +35,15 @@ const Navbar = () => {
               alignItems={"center"}
               width={"50vw"}
               height="70px"
-              variant="filled"
+              // variant="filled"
               placeholder="Search"
               color={"gray"}
+              bg={"#123047"}
+              backdropFilter={"blur(10px)"}
               fontSize="25px"
               paddingLeft={"30px"}
               _placeholder={{ opacity: 0.4 }}
+              border="1px solid white"
             />
             <InputRightElement
               margin={"auto"}
@@ -54,7 +57,8 @@ const Navbar = () => {
         </PopoverContent>
       </Popover>
       <Container
-        bg={"rgba(255,255,255,0.8)"}
+        color={"white"}
+        bg={"rgba(9, 25, 38,0.8)"}
         backdropFilter={"blur(10px)"}
         maxW={"100%"}
         justifyContent="space-around"
@@ -65,27 +69,45 @@ const Navbar = () => {
         height="80px"
         alignItems={"center"}
       >
-        <Icon
+        <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
+          <Icon
+            _hover={{ cursor: "pointer", w: "33px", h: "33px" }}
+            w={"30px"}
+            h="30px"
+            as={AiFillHome}
+          />
+        </Box>
+        <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
+          <Icon
+            onClick={onToggle}
+            _hover={{ cursor: "pointer", w: "33px", h: "33px" }}
+            w={"30px"}
+            h="30px"
+            as={BsSearch}
+          />
+        </Box>
+        <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
+          <Icon
+            _hover={{ cursor: "pointer", w: "38px", h: "38px" }}
+            w={"35px"}
+            h="35px"
+            as={CiSquarePlus}
+          />
+        </Box>
+        <Box
           _hover={{ cursor: "pointer" }}
-          w={"30px"}
-          h="30px"
-          as={AiFillHome}
-        />
-        <Icon
-          onClick={onToggle}
-          _hover={{ cursor: "pointer" }}
-          w={"30px"}
-          h="30px"
-          as={BsSearch}
-        />
-        <Icon
-          _hover={{ cursor: "pointer" }}
+          pos={"relative"}
+          display={"flex"}
+          justifyContent="center"
           w={"35px"}
           h="35px"
-          as={CiSquarePlus}
-        />
-        <Box _hover={{ cursor: "pointer" }} pos={"relative"}>
-          <Icon w={"30px"} h="30px" as={FaTelegramPlane} />
+        >
+          <Icon
+            _hover={{ w: "33px", h: "33px" }}
+            w={"30px"}
+            h="30px"
+            as={FaTelegramPlane}
+          />
           <Box
             pos={"absolute"}
             bg={message ? "#f73131" : ""}

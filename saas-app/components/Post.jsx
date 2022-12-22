@@ -49,7 +49,7 @@ const Post = ({ image, title, likes, comments }) => {
   };
   return (
     <>
-      <Container maxW={"100%"}>
+      <Container color={"white"} maxW={"100%"}>
         <Box
           display={"flex"}
           justifyContent="space-between"
@@ -156,7 +156,7 @@ const Post = ({ image, title, likes, comments }) => {
                 );
               })}
             </Box>
-            <InputGroup >
+            <InputGroup>
               <Input
                 alignItems={"center"}
                 width={"100%"}
@@ -186,7 +186,7 @@ const Post = ({ image, title, likes, comments }) => {
         ""
       )}
 
-      <Divider orientation="horizontal" width={"100%"} />
+      <Divider orientation="horizontal" width={"100%"} color="white" />
     </>
   );
 };

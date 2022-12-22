@@ -1,18 +1,20 @@
 import { useState } from "react";
 import Post from "./Post";
-import { Container, Divider } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 
 const Posts = () => {
   const [data, setdata] = useState([]);
   return (
     <Container
+      bg={"#091926"}
+      color="white"
       maxW={{ xl: "60%", lg: "60%", md: "70%", sm: "90%" }}
       margin="auto"
-      border={"1px solid gray"}
+      border={"1px solid white"}
       borderTop="none"
       borderBottom={"none"}
       marginBottom="80px"
-      paddingTop={"20px"}
+      paddingTop={"100px"}
       display={"flex"}
       flexDir="column"
       padding={"none"}
