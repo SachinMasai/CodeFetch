@@ -156,28 +156,27 @@ const Post = ({ image, title, likes, comments }) => {
                 );
               })}
             </Box>
-            <InputGroup>
+            <InputGroup >
               <Input
                 alignItems={"center"}
                 width={"100%"}
-                height="70px"
+                height="40px"
                 variant="filled"
                 placeholder="Add a comment..."
                 color={"gray"}
-                fontSize="25px"
+                fontSize="15px"
                 paddingLeft={"30px"}
                 _placeholder={{ opacity: 0.4 }}
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
               />
               <InputRightElement
-                margin={"auto"}
-                width="70px"
+                width="50px"
                 height={"100%"}
                 onClick={addComment}
                 _hover={{ cursor: "pointer" }}
                 children={
-                  <Icon width={"25px"} height="25px" as={RiSendPlaneLine} />
+                  <Icon width={"20px"} height="25px" as={RiSendPlaneLine} />
                 }
               />
             </InputGroup>
