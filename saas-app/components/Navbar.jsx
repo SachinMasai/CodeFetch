@@ -19,6 +19,9 @@ import { BsSearch } from "react-icons/bs";
 import { FaTelegramPlane } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import { CiSquarePlus } from "react-icons/ci";
+import Link from 'next/link'
+import Myapp from "../pages/Myapp"
+
 const Navbar = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();
   const [message, setMessage] = useState(true);
@@ -84,7 +87,10 @@ const Navbar = () => {
           h="35px"
           as={CiSquarePlus}
         />
+
+        <Link href= "Myapp">
         <Box _hover={{ cursor: "pointer" }} pos={"relative"}>
+          
           <Icon w={"30px"} h="30px" as={FaTelegramPlane} />
           <Box
             pos={"absolute"}
@@ -96,6 +102,8 @@ const Navbar = () => {
             color={"white"}
           ></Box>
         </Box>
+        </Link>
+
         <Avatar
           _hover={{ cursor: "pointer" }}
           name="Dhanraj"
