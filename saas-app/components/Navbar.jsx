@@ -20,7 +20,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { IoIosSearch } from "react-icons/io";
 import { CiSquarePlus } from "react-icons/ci";
 import Link from 'next/link'
-import Myapp from "../pages/Myapp"
+import {Myapp} from "../pages/Myapp"
 
 const Navbar = () => {
   const { isOpen, onToggle, onClose } = useDisclosure();

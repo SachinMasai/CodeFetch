@@ -37,7 +37,7 @@ export default function Sidebar() {
       .map(
         chat => 
           <Flex key={Math.random()} p={3} align="center" _hover={{bg: "gray.100", cursor: "pointer"}} onClick={() => redirect(chat.id)}>
-            <Avatar src="" marginEnd={3} />
+            <Avatar src={getOtherEmail(chat.users.photoURL)} marginEnd={3} />
             <Text>{getOtherEmail(chat.users, user)}</Text>
           </Flex>
       )
@@ -48,29 +48,32 @@ export default function Sidebar() {
     <Flex
       // bg="blue.100"
       h="100%"
-      w="300px"
+      w="310px"
       borderEnd="1px solid" borderColor="gray.200"
       direction="column"
+      backgroundColor="purple.100"
     >
 
       <Flex
         // bg="red.100"
-        h="81px" w="100%"
+        h="81px" w="101%"
         align="center" justifyContent="space-between"
         borderBottom="1px solid" borderColor="gray.200"
+        backgroundColor="yellow.500"
         p={3}
       >
 
         <Flex align="center">
-          <Avatar src={user.photoURL} marginEnd={3} />
-          <Text>{user.displayName}</Text>
+          <Avatar src={user.photoURL} marginEnd={5} />
+          <Text  fontSize="25px" fontFamily="Times New Roman"
+          >{user.displayName}</Text>
         </Flex>
 
         <IconButton size="sm" isRound icon={<ArrowLeftIcon />} onClick={() => signOut(auth)} />
 
       </Flex>
 
-      <Button m={5} p={4} onClick={() => newChat()}>New Chat</Button>
+      <Button   backgroundColor="yellow.300" m={5} p={4} onClick={() => newChat()}>New Chat/Search</Button>
 
       <Flex overflowX="scroll" direction="column" sx={{scrollbarWidth: "none"}} flex={1} >
         {chatList()}
