@@ -26,15 +26,6 @@ const Posts = () => {
         likes={9000}
         comments={800}
       />
-      <Divider orientation="horizontal" width={"100%"} />
-      <Post />
-      <Divider orientation="horizontal" width={"100%"} />
-      <Post />
-      <Divider orientation="horizontal" width={"100%"} />
-      <Post />
-      <Divider orientation="horizontal" width={"100%"} />
-      <Post />
-      <Divider orientation="horizontal" width={"100%"} />
     </Container>
   );
 };

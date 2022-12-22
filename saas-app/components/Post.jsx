@@ -7,6 +7,7 @@ import {
   Image,
   Text,
   useMediaQuery,
+  Divider,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
@@ -25,6 +26,7 @@ const Post = ({ image, title, likes, comments }) => {
     }
   };
   return (
+    <>
       <Container maxW={"100%"}>
         <Box
           display={"flex"}
@@ -113,6 +115,8 @@ const Post = ({ image, title, likes, comments }) => {
           />
         </Box>
       </Container>
+      <Divider orientation="horizontal" width={"100%"} />
+    </>
   );
 };
 
