@@ -1,10 +1,9 @@
 import { useState } from "react";
 import SinglePost from "./Post";
 import { Container } from "@chakra-ui/react";
-// { posts }
-const Posts = () => {
+const Posts = ({ posts }) => {
   const [data, setdata] = useState([]);
-  // console.log(posts);
+  console.log(posts);
   return (
     <Container
       bg={"#091926"}
@@ -28,22 +27,36 @@ const Posts = () => {
           "linear-gradient(135deg, #091926 0%,#123047 50%,#13598e 100%)",
       }}
     >
-      {posts?.map((k) => (
+      {/* {posts?.map((k) => (
         <SinglePost desc={k.description} imge={k.image} />
-      ))}
-      {/* <Post
-        image={
+      ))} */}
+      <SinglePost
+        imge={
           "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
         }
-        title={"Let that sink in!!!"}
+        desc={"Let that sink in!!!"}
+        likes={10}
+        comments={800}
+      />
+      <SinglePost
+        imge={
+          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
+        }
+        desc={"Let that sink in!!!"}
         likes={9000}
         comments={800}
-      /> */}
+      />
+      <SinglePost
+        imge={
+          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
+        }
+        desc={"Let that sink in!!!"}
+        likes={9000}
+        comments={800}
+      />
     </Container>
   );
 };
-
-export default Posts;
 
 // const connect = require("../config/db");
 // const Post = require("../featurs/posts/posts.model");
@@ -65,3 +78,4 @@ export const getServerSideProps = async () => {
     };
   }
 };
+export default Posts;

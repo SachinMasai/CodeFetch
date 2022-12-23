@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Container } from "@chakra-ui/react";
 import NavbarTop from "../components/NavbarTop";
+import HomePage from "../components/HomePage";
 
 export default function Home() {
   // const { isLoggedIn, token } = useSelector((state) => state.auth);
@@ -19,7 +20,7 @@ export default function Home() {
       }}
     >
       <NavbarTop />
-      <Posts />
+      <HomePage />
       <Navbar />
     </div>
   );

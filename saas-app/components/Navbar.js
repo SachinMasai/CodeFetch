@@ -34,6 +34,12 @@ import { Myapp } from "../pages/Myapp";
 
 const Navbar = () => {
   const { isOpen, onToggle, onClose, onOpen } = useDisclosure();
+  const {
+    isOpen: isOpenSearchModal,
+    onOpen: onOpenSearchModal,
+    onToggle: onToggleSearchModal,
+    onClose: onCloseSearchModal,
+  } = useDisclosure();
   const [message, setMessage] = useState(true);
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -59,9 +65,9 @@ const Navbar = () => {
   };
   return (
     <>
-      <Popover isOpen={isOpen}>
+      <Popover isOpen={isOpenSearchModal}>
         <PopoverTrigger>
-          <Center top={"0"} left="50vw" pos="fixed" zIndex={"10"}></Center>
+          <Center top={"80px"} left="50vw" pos="fixed" zIndex={"10"}></Center>
         </PopoverTrigger>
         <PopoverContent width={"100%"}>
           <InputGroup>
@@ -71,7 +77,7 @@ const Navbar = () => {
               height="70px"
               // variant="filled"
               placeholder="Search"
-              color={"gray"}
+              color={"white"}
               bg={"#123047"}
               backdropFilter={"blur(10px)"}
               fontSize="25px"
@@ -82,8 +88,9 @@ const Navbar = () => {
             <InputRightElement
               margin={"auto"}
               width="70px"
+              color={"white"}
               height={"100%"}
-              onClick={onClose}
+              onClick={onCloseSearchModal}
               _hover={{ cursor: "pointer" }}
               children={<Icon width={"25px"} height="25px" as={IoIosSearch} />}
             />
@@ -113,7 +120,7 @@ const Navbar = () => {
         </Box>
         <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
           <Icon
-            onClick={searchf}
+            onClick={onToggleSearchModal}
             _hover={{ cursor: "pointer", w: "33px", h: "33px" }}
             w={"30px"}
             h="30px"

@@ -19,7 +19,7 @@ const NavbarTop = () => {
       height="80px"
       // alignItems={"end"}
     >
-      {/* <Image src="/logo.png" /> */}
+      <Image pos={"fixed"} left="0" top="-8" width={"190px"} src="/logo.png" />
       <Box
         display="flex"
         alignItems={"end"}
