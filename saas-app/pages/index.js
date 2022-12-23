@@ -1,5 +1,7 @@
 import Navbar from "../components/Navbar";
 import Posts from "../components/Posts";
+import Rigth from "../components/Rigth";
+import Left from "../components/Left";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
@@ -13,7 +15,7 @@ export default function Home() {
     <>
       <Posts />
       <Navbar />
-   
+      
     </>
   );
 }
