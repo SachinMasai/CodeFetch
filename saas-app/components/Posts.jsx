@@ -11,7 +11,10 @@ const Posts = () => {
       color="white"
       maxW={{ xl: "60%", lg: "60%", md: "70%", sm: "90%" }}
       margin="auto"
-      border={"1px solid white"}
+      // border={"0.1px solid white"}
+      shadow={
+        "rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;"
+      }
       borderTop="none"
       borderBottom={"none"}
       marginBottom="80px"
@@ -20,10 +23,30 @@ const Posts = () => {
       flexDir="column"
       padding={"none"}
       gap="20px"
+      style={{
+        background:
+          "linear-gradient(135deg, #091926 0%,#123047 50%,#13598e 100%)",
+      }}
     >
       {/* {posts?.map((k) => (
         <SinglePost {...posts} />
       ))} */}
+      <SinglePost
+        image={
+          "/logo.png"
+        }
+        description={"Let that sink in!!!"}
+        likes={9000}
+        comments={800}
+      />
+      <SinglePost
+        image={
+          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
+        }
+        description={"Let that sink in!!!"}
+        likes={9000}
+        comments={800}
+      />
       <SinglePost
         image={
           "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"

@@ -11,7 +11,12 @@ export default function Home() {
   //   console.log(isLoggedIn, token);
   // });
   return (
-    <div style={{ backgroundColor: "#091926" }}>
+    <div
+      style={{
+        background:
+          "linear-gradient(135deg, #091926 0%,#123047 50%,#13598e 100%)",
+      }}
+    >
       <NavbarTop />
       <Posts />
       <Navbar />

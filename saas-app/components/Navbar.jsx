@@ -88,13 +88,13 @@ const Navbar = () => {
       </Popover>
       <Container
         color={"white"}
-        bg={"rgba(9, 25, 38,0.8)"}
+        bg={"rgba(21, 73, 109,0.9)"}
+        shadow='rgba(255, 255, 255, 0.8) 0px 6px 10px;'
         backdropFilter={"blur(10px)"}
         maxW={"100%"}
         justifyContent="space-around"
         bottom="0px"
         display={"flex"}
-        borderTop={"1px"}
         position={"fixed"}
         height="80px"
         alignItems={"center"}
@@ -124,30 +124,32 @@ const Navbar = () => {
             as={CiSquarePlus}
           />
         </Box>
-        <Box
-          _hover={{ cursor: "pointer" }}
-          pos={"relative"}
-          display={"flex"}
-          justifyContent="center"
-          w={"35px"}
-          h="35px"
-        >
-          <Icon
-            _hover={{ w: "33px", h: "33px" }}
-            w={"30px"}
-            h="30px"
-            as={FaTelegramPlane}
-          />
+        <Link href="Myapp">
           <Box
-            pos={"absolute"}
-            bg={message ? "#f73131" : ""}
-            top={"-5px"}
-            right="-9px"
-            padding={"5px 5px"}
-            borderRadius="50%"
-            color={"white"}
-          ></Box>
-        </Box>
+            _hover={{ cursor: "pointer" }}
+            pos={"relative"}
+            display={"flex"}
+            justifyContent="center"
+            w={"35px"}
+            h="35px"
+          >
+            <Icon
+              _hover={{ w: "33px", h: "33px" }}
+              w={"30px"}
+              h="30px"
+              as={FaTelegramPlane}
+            />
+            <Box
+              pos={"absolute"}
+              bg={message ? "#f73131" : ""}
+              top={"-5px"}
+              right="-9px"
+              padding={"5px 5px"}
+              borderRadius="50%"
+              color={"white"}
+            ></Box>
+          </Box>
+        </Link>
         <Avatar
           _hover={{ cursor: "pointer" }}
           name="Dhanraj"
