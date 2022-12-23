@@ -19,6 +19,15 @@ This is a simple Socail Media application created using `React NextJs` . Where y
 - Css
 - Javascript
 
+## Contributors
+
+*	[SachinMasai](https://github.com/SachinMasai)
+*	[Dhanraj4198](https://github.com/Dhanraj4198)
+*	[svijaym](https://github.com/svijaym)
+*	[amandk5](https://github.com/amandk5)
+
+
+
 ## Get Started
 
 #### 1. Clone the Repo
@@ -44,9 +53,4 @@ $ npm run dev
 ```
 
 
-## Credits
 
-*	[SachinMasai](https://github.com/SachinMasai)
-*	[Dhanraj4198](https://github.com/Dhanraj4198)
-*	[svijaym](https://github.com/svijaym)
-*	[amandk5](https://github.com/amandk5)
