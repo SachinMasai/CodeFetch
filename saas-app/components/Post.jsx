@@ -156,7 +156,7 @@ const Post = ({ image, title, likes, comments }) => {
                 );
               })}
             </Box>
-            <InputGroup >
+            <InputGroup>
               <Input
                 alignItems={"center"}
                 width={"100%"}
