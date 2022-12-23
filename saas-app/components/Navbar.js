@@ -34,6 +34,12 @@ import { Myapp } from "../pages/Myapp";
 
 const Navbar = () => {
   const { isOpen, onToggle, onClose, onOpen } = useDisclosure();
+  const {
+    isOpen: isOpenSearchModal,
+    onOpen: onOpenSearchModal,
+    onToggle: onToggleSearchModal,
+    onClose: onCloseSearchModal,
+  } = useDisclosure();
   const [message, setMessage] = useState(true);
   const initialRef = React.useRef(null);
   const finalRef = React.useRef(null);
@@ -59,9 +65,9 @@ const Navbar = () => {
   };
   return (
     <>
-      <Popover isOpen={isOpen}>
+      <Popover isOpen={isOpenSearchModal}>
         <PopoverTrigger>
-          <Center top={"0"} left="50vw" pos="fixed" zIndex={"10"}></Center>
+          <Center top={"80px"} left="50vw" pos="fixed" zIndex={"10"}></Center>
         </PopoverTrigger>
         <PopoverContent width={"100%"}>
           <InputGroup>
@@ -71,7 +77,7 @@ const Navbar = () => {
               height="70px"
               // variant="filled"
               placeholder="Search"
-              color={"gray"}
+              color={"white"}
               bg={"#123047"}
               backdropFilter={"blur(10px)"}
               fontSize="25px"
@@ -82,8 +88,9 @@ const Navbar = () => {
             <InputRightElement
               margin={"auto"}
               width="70px"
+              color={"white"}
               height={"100%"}
-              onClick={onClose}
+              onClick={onCloseSearchModal}
               _hover={{ cursor: "pointer" }}
               children={<Icon width={"25px"} height="25px" as={IoIosSearch} />}
             />
@@ -92,13 +99,13 @@ const Navbar = () => {
       </Popover>
       <Container
         color={"white"}
-        bg={"rgba(9, 25, 38,0.8)"}
+        bg={"rgba(21, 73, 109,0.9)"}
+        shadow="rgba(255, 255, 255, 0.8) 0px 6px 10px;"
         backdropFilter={"blur(10px)"}
         maxW={"100%"}
         justifyContent="space-around"
         bottom="0px"
         display={"flex"}
-        borderTop={"1px"}
         position={"fixed"}
         height="80px"
         alignItems={"center"}
@@ -113,7 +120,7 @@ const Navbar = () => {
         </Box>
         <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
           <Icon
-            onClick={searchf}
+            onClick={onToggleSearchModal}
             _hover={{ cursor: "pointer", w: "33px", h: "33px" }}
             w={"30px"}
             h="30px"
@@ -121,21 +128,13 @@ const Navbar = () => {
           />
         </Box>
         <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
-          {/* <Icon
+          <Icon
             _hover={{ cursor: "pointer", w: "38px", h: "38px" }}
             w={"35px"}
             h="35px"
             as={CiSquarePlus}
-          /> */}
-          <Button onClick={onOpen}>
-            <Icon
-              _hover={{ cursor: "pointer" }}
-              w={"35px"}
-              h="35px"
-              as={CiSquarePlus}
-            />
-          </Button>
-
+            onClick={onOpen}
+          />
           <Modal
             initialFocusRef={initialRef}
             finalFocusRef={finalRef}
@@ -179,38 +178,42 @@ const Navbar = () => {
             </ModalContent>
           </Modal>
         </Box>
-        <Box
-          _hover={{ cursor: "pointer" }}
-          pos={"relative"}
-          display={"flex"}
-          justifyContent="center"
-          w={"35px"}
-          h="35px"
-        >
-          <Icon
-            _hover={{ w: "33px", h: "33px" }}
-            w={"30px"}
-            h="30px"
-            as={FaTelegramPlane}
-          />
+        <Link href="Myapp">
           <Box
-            pos={"absolute"}
-            bg={message ? "#f73131" : ""}
-            top={"-5px"}
-            right="-9px"
-            padding={"5px 5px"}
-            borderRadius="50%"
-            color={"white"}
-          ></Box>
-        </Box>
-        <Avatar
-          _hover={{ cursor: "pointer" }}
-          name="Dhanraj"
-          src=""
-          border={message ? "3px solid #f73131" : ""}
-        >
-          <AvatarBadge boxSize={"20px"} bg="green.500" />
-        </Avatar>
+            _hover={{ cursor: "pointer" }}
+            pos={"relative"}
+            display={"flex"}
+            justifyContent="center"
+            w={"35px"}
+            h="35px"
+          >
+            <Icon
+              _hover={{ w: "33px", h: "33px" }}
+              w={"30px"}
+              h="30px"
+              as={FaTelegramPlane}
+            />
+            <Box
+              pos={"absolute"}
+              bg={message ? "#f73131" : ""}
+              top={"-5px"}
+              right="-9px"
+              padding={"5px 5px"}
+              borderRadius="50%"
+              color={"white"}
+            ></Box>
+          </Box>
+        </Link>
+        <Link href='/user/login'>
+          <Avatar
+            _hover={{ cursor: "pointer" }}
+            name="Dhanraj"
+            src=""
+            border={message ? "3px solid #f73131" : ""}
+          >
+            <AvatarBadge boxSize={"20px"} bg="green.500" />
+          </Avatar>
+        </Link>
       </Container>
     </>
   );

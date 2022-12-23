@@ -17,7 +17,7 @@ import {
 import React, { useState } from "react";
 import { BiDotsHorizontalRounded } from "react-icons/bi";
 import { BiComment } from "react-icons/bi";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
+import { AiFillHeart, AiOutlineHeart, AiOutlineShareAlt } from "react-icons/ai";
 import { FaTelegramPlane } from "react-icons/fa";
 import { RiSendPlaneLine } from "react-icons/ri";
 const SinglePost = ({ imge, desc, likes, comments }) => {
@@ -139,7 +139,7 @@ const SinglePost = ({ imge, desc, likes, comments }) => {
             _hover={{ cursor: "pointer" }}
             width={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
             h={{ lg: "25px", md: "20px", sm: "20px", base: "25px" }}
-            as={FaTelegramPlane}
+            as={AiOutlineShareAlt}
           />
         </Box>
       </Container>
@@ -149,7 +149,12 @@ const SinglePost = ({ imge, desc, likes, comments }) => {
             <Box padding={"20px"}>
               {allComments.map((item) => {
                 return (
-                  <Box display={"flex"} gap="10px" padding={"5px"}>
+                  <Box
+                    overflow={"hidden"}
+                    display={"flex"}
+                    gap="10px"
+                    padding={"5px"}
+                  >
                     <Avatar name="Sachin" size={"xs"} />
                     <Text>{item}</Text>
                   </Box>
