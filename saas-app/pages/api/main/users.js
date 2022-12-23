@@ -48,6 +48,7 @@ async function addUser(req, res) {
     await connect();
 
     const user = await User.create(req.body);
+    alert("registered successfully");
     res.json({ user });
   } catch (error) {
     return res.json({
