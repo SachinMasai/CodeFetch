@@ -20,7 +20,7 @@ import { BiComment } from "react-icons/bi";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FaTelegramPlane } from "react-icons/fa";
 import { RiSendPlaneLine } from "react-icons/ri";
-const Post = ({ image, title, likes, comments }) => {
+const SinglePost = ({ image, description, likes, comments }) => {
   const [lessThan550] = useMediaQuery("(max-width: 550px)");
   const [like, setLike] = useState(true);
   const { isOpen, onToggle } = useDisclosure();
@@ -156,7 +156,7 @@ const Post = ({ image, title, likes, comments }) => {
                 );
               })}
             </Box>
-            <InputGroup >
+            <InputGroup>
               <Input
                 alignItems={"center"}
                 width={"100%"}
@@ -191,4 +191,4 @@ const Post = ({ image, title, likes, comments }) => {
   );
 };
 
-export default Post;
+export default SinglePost;
