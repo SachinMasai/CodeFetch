@@ -1,10 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SinglePost from "./Post";
 import { Container, Divider } from "@chakra-ui/react";
-
-const Posts = ({ posts }) => {
-  const [data, setdata] = useState([]);
-  console.log(posts);
+// import { GetServerSideProps } from "next";
+const getData = () => {
+  return fetch(`/api/posts/get`).then((res) => res.json());
+};
+const Posts = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    getData()
+      .then((res) => {
+        setLoading(false);
+        setData(res.post);
+        console.log(res.post);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  }, [data]);
   return (
     <Container
       bg={"#091926"}
@@ -21,40 +36,26 @@ const Posts = ({ posts }) => {
       padding={"none"}
       gap="20px"
     >
-      {posts?.map((k) => (
+      {data?.map((k) => (
         <SinglePost desc={k.description} imge={k.image} />
       ))}
-      {/* <Post
-        image={
-          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
-        }
-        title={"Let that sink in!!!"}
-        likes={9000}
-        comments={800}
-      /> */}
     </Container>
   );
 };
 
-export default Posts;
-
-// const connect = require("../config/db");
-// const Post = require("../featurs/posts/posts.model");
-
-export const getServerSideProps = async () => {
+export const GetServerSideProps = async () => {
   try {
     const res = await fetch(`/api/posts/get`);
-    // .then((x) => x.json());
+
     const data = await res.json();
     return {
-      props: {
-        posts: data,
-      },
+      props: { data },
     };
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     return {
       notFound: true,
     };
   }
 };
+export default Posts;
