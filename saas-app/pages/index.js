@@ -10,6 +10,7 @@ export default function Home() {
   // useEffect(() => {
   //   console.log(isLoggedIn, token);
   // });
+
   return (
     <div
       style={{

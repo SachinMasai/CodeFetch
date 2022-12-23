@@ -93,7 +93,7 @@ const Navbar = () => {
       <Container
         color={"white"}
         bg={"rgba(21, 73, 109,0.9)"}
-        shadow='rgba(255, 255, 255, 0.8) 0px 6px 10px;'
+        shadow="rgba(255, 255, 255, 0.8) 0px 6px 10px;"
         backdropFilter={"blur(10px)"}
         maxW={"100%"}
         justifyContent="space-around"
@@ -121,21 +121,13 @@ const Navbar = () => {
           />
         </Box>
         <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
-          {/* <Icon
+          <Icon
             _hover={{ cursor: "pointer", w: "38px", h: "38px" }}
             w={"35px"}
             h="35px"
             as={CiSquarePlus}
-          /> */}
-          <Button onClick={onOpen}>
-            <Icon
-              _hover={{ cursor: "pointer" }}
-              w={"35px"}
-              h="35px"
-              as={CiSquarePlus}
-            />
-          </Button>
-
+            onClick={onOpen}
+          />
           <Modal
             initialFocusRef={initialRef}
             finalFocusRef={finalRef}
