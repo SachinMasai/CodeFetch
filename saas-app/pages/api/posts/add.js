@@ -13,7 +13,7 @@ export default async function addPost(req, res) {
 
     res.json({ post });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     res.json({ error });
   }
 }
