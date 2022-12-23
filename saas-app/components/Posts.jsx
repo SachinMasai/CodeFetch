@@ -28,50 +28,10 @@ const Posts = () => {
           "linear-gradient(135deg, #091926 0%,#123047 50%,#13598e 100%)",
       }}
     >
-      {/* {posts?.map((k) => (
-        <SinglePost {...posts} />
-      ))} */}
-      <SinglePost
-        image={
-          "/logo.png"
-        }
-        description={"Let that sink in!!!"}
-        likes={9000}
-        comments={800}
-      />
-      <SinglePost
-        image={
-          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
-        }
-        description={"Let that sink in!!!"}
-        likes={9000}
-        comments={800}
-      />
-      <SinglePost
-        image={
-          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
-        }
-        description={"Let that sink in!!!"}
-        likes={9000}
-        comments={800}
-      />
+      {posts?.map((k) => (
+        <SinglePost desc={k.description} imge={k.image} />
+      ))}
       {/* <Post
-        image={
-          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
-        }
-        title={"Let that sink in!!!"}
-        likes={9000}
-        comments={800}
-      />
-      <Post
-        image={
-          "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
-        }
-        title={"Let that sink in!!!"}
-        likes={9000}
-        comments={800}
-      />
-      <Post
         image={
           "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
         }
@@ -85,17 +45,17 @@ const Posts = () => {
 
 export default Posts;
 
-const connect = require("../config/db");
-const Post = require("../featurs/posts/posts.model");
+// const connect = require("../config/db");
+// const Post = require("../featurs/posts/posts.model");
 
 export const getServerSideProps = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/api/posts/get`);
+    const res = await fetch(`/api/posts/get`);
     // .then((x) => x.json());
     const data = await res.json();
     return {
       props: {
-        posts: JSON.parse(JSON.stringify(data)),
+        posts: data,
       },
     };
   } catch (error) {

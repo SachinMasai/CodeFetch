@@ -18,8 +18,8 @@ const PostSchema = new mongoose.Schema(
     versionKey: false,
   }
 );
-
-// const Post = mongoose.model.post || mongoose.model("post", PostSchema);
+mongoose.models = {};
+const Post = mongoose.model.post || mongoose.model("post", PostSchema);
 
 // module.exports = Post;
 // mongoose.models.Post ||
