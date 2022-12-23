@@ -2,7 +2,6 @@ import Navbar from "../components/Navbar";
 import Posts from "../components/Posts";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-
 import { Container } from "@chakra-ui/react";
 import NavbarTop from "../components/NavbarTop";
 

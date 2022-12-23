@@ -1,8 +1,5 @@
 import {
-  Box,
   Container,
-  Grid,
-  GridItem,
   Tabs,
   Tab,
   TabList,

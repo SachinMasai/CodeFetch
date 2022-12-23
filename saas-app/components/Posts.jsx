@@ -1,10 +1,10 @@
 import { useState } from "react";
 import SinglePost from "./Post";
-import { Container, Divider } from "@chakra-ui/react";
-
-const Posts = ({ posts }) => {
+import { Container } from "@chakra-ui/react";
+// { posts }
+const Posts = () => {
   const [data, setdata] = useState([]);
-  console.log(posts);
+  // console.log(posts);
   return (
     <Container
       bg={"#091926"}
@@ -21,14 +21,14 @@ const Posts = ({ posts }) => {
       padding={"none"}
       gap="20px"
     >
-      {posts?.map((k) => (
+      {/* {posts?.map((k) => (
         <SinglePost {...posts} />
-      ))}
-      <Post
+      ))} */}
+      <SinglePost
         image={
           "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
         }
-        title={"Let that sink in!!!"}
+        description={"Let that sink in!!!"}
         likes={9000}
         comments={800}
       />
