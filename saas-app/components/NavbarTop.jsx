@@ -1,4 +1,12 @@
-import { Box, Container, Grid, GridItem } from "@chakra-ui/react";
+import {
+  Box,
+  Container,
+  Grid,
+  GridItem,
+  Tabs,
+  Tab,
+  TabList,
+} from "@chakra-ui/react";
 import React from "react";
 
 const NavbarTop = () => {
@@ -7,8 +15,8 @@ const NavbarTop = () => {
       color={"white"}
       bg={"rgba(9, 25, 38,0.8)"}
       backdropFilter={"blur(10px)"}
-      maxW={"110%"}
-      justifyContent="space-around"
+      maxW={"100%"}
+      justifyContent="center"
       top={"0px"}
       margin="auto"
       display={"flex"}
@@ -16,22 +24,21 @@ const NavbarTop = () => {
       position={"fixed"}
       zIndex="10"
       height="80px"
-      alignItems={"center"}
+      alignItems={"end"}
     >
-      <Grid
-        justifyContent={"center"}
-        maxW={{ xl: "60%", lg: "60%", md: "70%", sm: "90%" }}
-        display="grid"
-        gridTemplateColumns={"repeat(2,1fr)"}
-        gap={"10px"}
-        height="100%"
-        alignItems={"center"}
+      <Tabs
+        width={{ xl: "60%", lg: "60%", md: "70%", sm: "90%" }}
+        isFitted
+        variant={'enclosed'}
       >
-        <GridItem border={"1px solid"}>Feed</GridItem>
-        <Box>Trending</Box>
-        <Box></Box>
-        <Box></Box>
-      </Grid>
+        <TabList gap={"10px"}>
+          <Tab _hover={{ bg: "rgba(255, 255, 255,0.2)" }}>Feed</Tab>
+          <Tab _hover={{ bg: "rgba(255, 255, 255,0.2)" }}>Trending</Tab>
+          <Tab _hover={{ bg: "rgba(255, 255, 255,0.2)" }}>News</Tab>
+          <Tab _hover={{ bg: "rgba(255, 255, 255,0.2)" }}>Sports</Tab>
+          <Tab _hover={{ bg: "rgba(255, 255, 255,0.2)" }}>Entertainment</Tab>
+        </TabList>
+      </Tabs>
     </Container>
   );
 };
