@@ -6,7 +6,10 @@ This is a simple Socail Media application created using `React NextJs` . Where y
 
 ## Preview - 
 
-
+<img src="./media/home1.jpg" alt="">
+<img src="./media/home-page1.jpg" alt="">
+<img src="./media/chat-box.jpg" alt="">
+<img src="./media/chat-search.jpg" alt="">
 
 ## Tech- Steck
 - Next-Js
