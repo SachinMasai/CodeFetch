@@ -1,31 +1,43 @@
 import { Container, Heading, Input, Button, Box, Text } from "@chakra-ui/react";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function register() {
   const [userData, setUserData] = useState({
-    username: "",
+    name: "",
     email: "",
     password: "",
-    confirmpassword: "",
+    image: "",
   });
 
-  const registerUser = (e) => {
+  const registerUser = async (e) => {
     e.preventDefault();
-    alert("clicked");
     // console.log(userData);
-    axios.post("/api/user", {
-      userData: userData,
-    });
+    const res = await axios
+      .post("http://localhost:3000/api/main/users", {
+        userData: userData,
+      })
+      .then((res) => res)
+      .catch((err) => console.log(err));
+    // let response = await fetch("http://localhost:3000/api/main/users", {
+    //   method: "POST",
+    //   body: JSON.stringify(userData),
+    // });
+    console.log(res);
+
     setUserData({
       ...userData,
-      username: "",
+      name: "",
       email: "",
       password: "",
-      confirmpassword: "",
+      image: "",
     });
   };
+
+  // useEffect(() => {
+  //   console.log(users);
+  // });
 
   return (
     <Container centerContent>
@@ -36,10 +48,10 @@ export default function register() {
           required
           mb="1"
           type="text"
-          placeholder="Enter username"
-          value={userData.username}
+          placeholder="Enter name"
+          value={userData.name}
           onChange={({ target }) =>
-            setUserData({ ...userData, username: target.value })
+            setUserData({ ...userData, name: target.value })
           }
         />
         <Input
@@ -65,11 +77,11 @@ export default function register() {
         <Input
           required
           mb="1"
-          type="password"
-          placeholder="confirm password"
-          value={userData.confirmpassword}
+          type="text"
+          placeholder="image url"
+          value={userData.image}
           onChange={({ target }) =>
-            setUserData({ ...userData, confirmpassword: target.value })
+            setUserData({ ...userData, image: target.value })
           }
         />
         <br />
@@ -88,3 +100,20 @@ export default function register() {
     </Container>
   );
 }
+
+// export async function getServerSideProps(ctx) {
+//   // get the current environment
+//   // let dev = process.env.NODE_ENV !== "production";
+//   // let { DEV_URL, PROD_URL } = process.env;
+
+//   // request posts from api
+//   let response = await fetch("http://localhost:3000/api/posts");
+//   // extract the data
+//   let data = await response.json();
+
+//   return {
+//     props: {
+//       users: data["message"],
+//     },
+//   };
+// }
