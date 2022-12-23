@@ -204,7 +204,7 @@ const Navbar = () => {
             ></Box>
           </Box>
         </Link>
-        <Link href='/user/login'>
+        <Link href="/user/login">
           <Avatar
             _hover={{ cursor: "pointer" }}
             name="Dhanraj"
