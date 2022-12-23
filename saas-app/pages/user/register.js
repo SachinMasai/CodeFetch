@@ -14,16 +14,19 @@ export default function register() {
   const registerUser = async (e) => {
     e.preventDefault();
     // console.log(userData);
-    const res = await axios
-      .post("http://localhost:3000/api/main/users", {
-        userData: userData,
-      })
-      .then((res) => res)
-      .catch((err) => console.log(err));
-    // let response = await fetch("http://localhost:3000/api/main/users", {
-    //   method: "POST",
-    //   body: JSON.stringify(userData),
-    // });
+    const res = await fetch("/api/main/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: userData.name,
+        email: userData.email,
+        password: userData.password,
+        image: userData.image,
+      }),
+    });
+
     console.log(res);
 
     setUserData({
@@ -40,8 +43,8 @@ export default function register() {
   // });
 
   return (
-    <Container centerContent>
-      <Heading>Register page</Heading>
+    <Container centerContent width="100%" height="100vh" pt="2">
+      <Heading>Register</Heading>
       <br />
       <form onSubmit={registerUser}>
         <Input
@@ -85,7 +88,7 @@ export default function register() {
           }
         />
         <br />
-        <Button type="submit">Register</Button>
+        <Button type="submit" color="white" bg="darkred">Register</Button>
       </form>
 
       <br />
