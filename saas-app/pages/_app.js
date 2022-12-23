@@ -3,16 +3,14 @@ import { ChakraProvider, Spinner, Center } from "@chakra-ui/react";
 import { Provider } from "react-redux";
 import store from "../redux/store";
 
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState } from "react-firebase-hooks/auth";
 import Login from "../components/chat/Login";
-import { auth } from "../firebaseconfig"
-import  Sidebar from "../components/chat/Sidebar"
-
+import { auth } from "../firebaseconfig";
+import Sidebar from "../components/chat/Sidebar";
 
 export default function App({ Component, pageProps }) {
   const [user, loading, error] = useAuthState(auth);
-   
- 
+
   if (loading) {
     return (
       <ChakraProvider>
@@ -20,9 +18,8 @@ export default function App({ Component, pageProps }) {
           <Spinner size="xl" />
         </Center>
       </ChakraProvider>
-    )
+    );
   }
-
 
   return (
     <Provider store={store}>
@@ -31,7 +28,4 @@ export default function App({ Component, pageProps }) {
       </ChakraProvider>
     </Provider>
   );
-
-
- 
 }
