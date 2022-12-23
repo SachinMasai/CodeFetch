@@ -52,7 +52,7 @@ export default function login() {
 
   return (
     <Container centerContent width="100%" height="100vh" pt="2">
-      <Heading>login page</Heading>
+      <Heading>Login</Heading>
       <br />
       <form onSubmit={handleLogin}>
         <Input
@@ -61,6 +61,7 @@ export default function login() {
           type="email"
           placeholder="enter email"
           onChange={({ target }) => setEmail(target.value)}
+          mb="1"
         />
         <Input
           required
@@ -68,9 +69,10 @@ export default function login() {
           type="password"
           placeholder="enter password"
           onChange={({ target }) => setPassword(target.value)}
+          mb="1"
         />
         <br />
-        <Button type="submit">Login</Button>
+        <Button type="submit" color="white" bg="darkblue">Login</Button>
         {/* <Button onClick={() => dispatch(loginUser())}>Login</Button> */}
       </form>
       <br />

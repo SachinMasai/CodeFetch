@@ -88,7 +88,7 @@ export default function register() {
           }
         />
         <br />
-        <Button type="submit">Register</Button>
+        <Button type="submit" color="white" bg="darkred">Register</Button>
       </form>
 
       <br />
