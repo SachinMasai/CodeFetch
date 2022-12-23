@@ -204,14 +204,16 @@ const Navbar = () => {
             ></Box>
           </Box>
         </Link>
-        <Avatar
-          _hover={{ cursor: "pointer" }}
-          name="Dhanraj"
-          src=""
-          border={message ? "3px solid #f73131" : ""}
-        >
-          <AvatarBadge boxSize={"20px"} bg="green.500" />
-        </Avatar>
+        <Link href='/user/login'>
+          <Avatar
+            _hover={{ cursor: "pointer" }}
+            name="Dhanraj"
+            src=""
+            border={message ? "3px solid #f73131" : ""}
+          >
+            <AvatarBadge boxSize={"20px"} bg="green.500" />
+          </Avatar>
+        </Link>
       </Container>
     </>
   );
