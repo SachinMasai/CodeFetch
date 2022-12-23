@@ -2,7 +2,7 @@ import { useState } from "react";
 // import Post from "./Post";
 import { Container, Divider } from "@chakra-ui/react";
 
-const Posts = () => {
+const Posts = ({ res }) => {
   const [data, setdata] = useState([]);
   return (
     <Container
@@ -18,6 +18,11 @@ const Posts = () => {
       padding={"none"}
       gap="20px"
     >
+      {res.map((k) => {
+        <div>
+          <h1>{k.pst}</h1>
+        </div>;
+      })}
       <Post
         image={
           "http://localhost:3001/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fsink.6c38a83c.jpg&w=1920&q=75"
@@ -61,17 +66,12 @@ const Post = require("../featurs/posts/posts.model");
 
 export const getServerSideProps = async () => {
   try {
-    console.log("CONNECTING TO MONGO");
-    await connect();
-    console.log("CONNECTED TO MONGO");
-
-    console.log("FETCHING POSTS");
-    const posts = await Post.find();
-    console.log("FETCHED POSTS");
-
+    const res = await fetch(`http://localhost:3000/api/posts/get`);
+    // .then((x) => x.json());
+    const data = await res.json();
     return {
       props: {
-        tests: JSON.parse(JSON.stringify(posts)),
+        posts: JSON.parse(JSON.stringify(data)),
       },
     };
   } catch (error) {

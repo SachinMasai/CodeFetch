@@ -40,7 +40,7 @@ const Navbar = () => {
   const [pst, setPst] = useState("");
   const [img, setImg] = useState("");
   const createPost = async () => {
-    const res = await fetch("/api/posts/add", {
+    const res = await fetch("http://localhost:3000/api/posts/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
