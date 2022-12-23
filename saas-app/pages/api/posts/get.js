@@ -10,7 +10,7 @@ export default async function getPost(req, res) {
 
     res.json({ post });
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
     res.json({ error });
   }
 }

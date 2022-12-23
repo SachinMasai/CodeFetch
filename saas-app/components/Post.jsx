@@ -20,7 +20,7 @@ import { BiComment } from "react-icons/bi";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { FaTelegramPlane } from "react-icons/fa";
 import { RiSendPlaneLine } from "react-icons/ri";
-const SinglePost = ({ image, description, likes, comments }) => {
+const SinglePost = ({ imge, desc, likes, comments }) => {
   const [lessThan550] = useMediaQuery("(max-width: 550px)");
   const [like, setLike] = useState(true);
   const { isOpen, onToggle } = useDisclosure();
@@ -81,7 +81,7 @@ const SinglePost = ({ image, description, likes, comments }) => {
           </Box>
         </Box>
         <Box width={{ lg: "80%", md: "90%", sm: "100%" }} margin="auto">
-          <Text marginBottom={"20px"}>{title}</Text>
+          <Text marginBottom={"20px"}>{desc}</Text>
         </Box>
         <Box
           width={{ lg: "80%", md: "90%", sm: "100%" }}
@@ -91,7 +91,7 @@ const SinglePost = ({ image, description, likes, comments }) => {
           marginBottom={"20px"}
           onDoubleClick={handleLike}
         >
-          <Image width={"100%"} borderRadius="10px" src={image} />
+          <Image width={"100%"} borderRadius="10px" src={imge} />
         </Box>
         <Box
           width={{ lg: "80%", md: "90%", sm: "100%", base: "100%" }}

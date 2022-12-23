@@ -40,7 +40,7 @@ const Navbar = () => {
   const [pst, setPst] = useState("");
   const [img, setImg] = useState("");
   const createPost = async () => {
-    const res = await fetch("http://localhost:3000/api/posts/add", {
+    const res = await fetch("/api/posts/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,6 +52,10 @@ const Navbar = () => {
     });
     const data = await res.json();
     console.log(data);
+    onClose();
+  };
+  const searchf = () => {
+    onToggle();
   };
   return (
     <>
@@ -109,7 +113,7 @@ const Navbar = () => {
         </Box>
         <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
           <Icon
-            onClick={onToggle}
+            onClick={searchf}
             _hover={{ cursor: "pointer", w: "33px", h: "33px" }}
             w={"30px"}
             h="30px"
@@ -117,12 +121,63 @@ const Navbar = () => {
           />
         </Box>
         <Box display={"flex"} justifyContent="center" w={"35px"} h="35px">
-          <Icon
+          {/* <Icon
             _hover={{ cursor: "pointer", w: "38px", h: "38px" }}
             w={"35px"}
             h="35px"
             as={CiSquarePlus}
-          />
+          /> */}
+          <Button onClick={onOpen}>
+            <Icon
+              _hover={{ cursor: "pointer" }}
+              w={"35px"}
+              h="35px"
+              as={CiSquarePlus}
+            />
+          </Button>
+
+          <Modal
+            initialFocusRef={initialRef}
+            finalFocusRef={finalRef}
+            isOpen={isOpen}
+            onClose={onClose}
+          >
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Create your post</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody pb={6}>
+                <FormControl>
+                  <FormLabel>Description</FormLabel>
+                  <Input
+                    ref={initialRef}
+                    required
+                    placeholder="Whats on your mind, Start posting"
+                    onChange={(e) => {
+                      setPst(e.target.value);
+                    }}
+                  />
+                </FormControl>
+
+                <FormControl mt={4}>
+                  <FormLabel>Add image adress</FormLabel>
+                  <Input
+                    placeholder="Image adress / link"
+                    onChange={(e) => {
+                      setImg(e.target.value);
+                    }}
+                  />
+                </FormControl>
+              </ModalBody>
+
+              <ModalFooter>
+                <Button colorScheme="blue" mr={3} onClick={createPost}>
+                  Post
+                </Button>
+                <Button onClick={onClose}>Cancel</Button>
+              </ModalFooter>
+            </ModalContent>
+          </Modal>
         </Box>
         <Box
           _hover={{ cursor: "pointer" }}
